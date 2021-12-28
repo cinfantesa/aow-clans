@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Card, Icon, IconButton, Tooltip } from '@mui/material'
+import { Grid, Card, Icon } from '@mui/material'
 import { Box, styled } from '@mui/system'
 import { Small } from 'app/components/Typography'
 
@@ -45,65 +45,23 @@ const StatCards = () => {
                     <ContentBox>
                         <Icon className="icon">group</Icon>
                         <Box ml="12px">
-                            <Small>New Leads</Small>
+                            <Small>Número de miembros</Small>
                             <Heading>3050</Heading>
                         </Box>
                     </ContentBox>
-                    <Tooltip title="View Details" placement="top">
-                        <IconButton>
-                            <Icon>arrow_right_alt</Icon>
-                        </IconButton>
-                    </Tooltip>
                 </StyledCard>
             </Grid>
             <Grid item xs={12} md={6}>
                 <StyledCard elevation={6}>
                     <ContentBox>
-                        <Icon className="icon">attach_money</Icon>
+                        <Icon className="icon">group</Icon>
                         <Box ml="12px">
                             <Small sx={{ lineHeight: 1 }}>
-                                This week Sales
+                                Miembros inactivos
                             </Small>
-                            <Heading>$80,500</Heading>
+                            <Heading>23</Heading>
                         </Box>
                     </ContentBox>
-                    <Tooltip title="View Details" placement="top">
-                        <IconButton>
-                            <Icon>arrow_right_alt</Icon>
-                        </IconButton>
-                    </Tooltip>
-                </StyledCard>
-            </Grid>
-            <Grid item xs={12} md={6}>
-                <StyledCard elevation={6}>
-                    <ContentBox>
-                        <Icon className="icon">store</Icon>
-                        <Box ml="12px">
-                            <Small>Inventory Status</Small>
-                            <Heading>8.5% Stock Surplus</Heading>
-                        </Box>
-                    </ContentBox>
-                    <Tooltip title="View Details" placement="top">
-                        <IconButton>
-                            <Icon>arrow_right_alt</Icon>
-                        </IconButton>
-                    </Tooltip>
-                </StyledCard>
-            </Grid>
-            <Grid item xs={12} md={6}>
-                <StyledCard elevation={6}>
-                    <ContentBox>
-                        <Icon className="icon">shopping_cart</Icon>
-                        <Box ml="12px">
-                            <Small>Orders to deliver</Small>
-                            <Heading>305 Orders</Heading>
-                        </Box>
-                    </ContentBox>
-                    <Tooltip title="View Details" placement="top">
-                        <IconButton>
-                            <Icon>arrow_right_alt</Icon>
-                        </IconButton>
-                    </Tooltip>
                 </StyledCard>
             </Grid>
         </Grid>
