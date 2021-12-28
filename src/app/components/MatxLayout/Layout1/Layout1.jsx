@@ -80,7 +80,7 @@ const Layout1 = () => {
             let mode = isMdScreen ? 'close' : sidebarMode
             updateSettings({ layout1Settings: { leftSidebar: { mode } } })
         }
-    }, [isMdScreen])
+    }, [isMdScreen, updateSettings])
 
     return (
         <Layout1Root className={layoutClasses}>
