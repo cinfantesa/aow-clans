@@ -1,4 +1,5 @@
 # Getting Started with Create React App
+[![Netlify Status](https://api.netlify.com/api/v1/badges/9db44f1b-8076-4456-96ce-837721fa7a70/deploy-status)](https://app.netlify.com/sites/aow-clans/deploys)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
