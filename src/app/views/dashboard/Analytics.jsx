@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import StatCards from './shared/StatCards'
 import { Grid } from '@mui/material'
-import { styled, useTheme } from '@mui/system'
+import { styled } from '@mui/system'
 import {loadMembers} from '../../redux/actions/DashboardActions';
 import {useDispatch, useSelector} from 'react-redux';
 
