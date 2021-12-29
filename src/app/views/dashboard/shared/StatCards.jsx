@@ -37,7 +37,7 @@ const Heading = styled('h6')(({ theme }) => ({
     color: theme.palette.primary.main,
 }))
 
-const StatCards = () => {
+const StatCards = ({totalMembers, inactiveMembers}) => {
     return (
         <Grid container spacing={3} sx={{ mb: '24px' }}>
             <Grid item xs={12} md={6}>
@@ -46,7 +46,7 @@ const StatCards = () => {
                         <Icon className="icon">group</Icon>
                         <Box ml="12px">
                             <Small>Número de miembros</Small>
-                            <Heading>3050</Heading>
+                            <Heading>{totalMembers}</Heading>
                         </Box>
                     </ContentBox>
                 </StyledCard>
@@ -59,7 +59,7 @@ const StatCards = () => {
                             <Small sx={{ lineHeight: 1 }}>
                                 Miembros inactivos
                             </Small>
-                            <Heading>23</Heading>
+                            <Heading>{inactiveMembers}</Heading>
                         </Box>
                     </ContentBox>
                 </StyledCard>

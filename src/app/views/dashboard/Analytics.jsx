@@ -3,6 +3,8 @@ import StatCards from './shared/StatCards'
 import { Grid, Card } from '@mui/material'
 import DoughnutChart from './shared/Doughnut'
 import { styled, useTheme } from '@mui/system'
+import {loadMembers} from '../../redux/actions/DashboardActions';
+import {useDispatch, useSelector} from 'react-redux';
 
 const ContentBox = styled('div')(({ theme }) => ({
     margin: '30px',
@@ -22,27 +24,27 @@ const SubTitle = styled('span')(({ theme }) => ({
     color: theme.palette.text.secondary,
 }))
 
-// const H4 = styled('h4')(({ theme }) => ({
-//     fontSize: '1rem',
-//     fontWeight: '500',
-//     marginBottom: '16px',
-//     textTransform: 'capitalize',
-//     color: theme.palette.text.secondary,
-// }))
+let membersLoaded = false;
 
 const Analytics = () => {
-    const { palette } = useTheme()
+    const dispatch = useDispatch();
+    const { palette } = useTheme();
+    const stats = useSelector(state => state.dashboard.stats);
+
+    if (!membersLoaded) {
+        dispatch(loadMembers());
+        membersLoaded = true;
+    }
 
     return (
         <Fragment>
             <ContentBox className="analytics">
                 <Grid container spacing={3}>
                     <Grid item lg={8} md={8} sm={12} xs={12}>
-                        <StatCards />
-                        {/*<TopSellingTable />*/}
-                        {/*<StatCards2 />*/}
-                        {/*<H4>Ongoing Projects</H4>*/}
-                        {/*<RowCards />*/}
+                        <StatCards
+                          totalMembers={stats.totalMembers}
+                          inactiveMembers={stats.inactiveMembers}
+                        />
                     </Grid>
 
                     <Grid item lg={4} md={4} sm={12} xs={12}>
@@ -50,16 +52,22 @@ const Analytics = () => {
                             <Title>Rangos</Title>
                             <SubTitle>Desde la última temporada</SubTitle>
                             <DoughnutChart
-                                height="300px"
+                                height="500px"
                                 color={[
                                     palette.primary.dark,
                                     palette.primary.main,
                                     palette.primary.light,
                                 ]}
+                                godOfWar={stats.godOfWarMembers}
+                                conqueror={stats.conquerorMembers}
+                                king={stats.kingMembers}
+                                diamond={stats.diamondMembers}
+                                platinum={stats.platinumMembers}
+                                gold={stats.goldMembers}
+                                silver={stats.silverMembers}
+                                bronze={stats.bronzeMembers}
                             />
                         </Card>
-                        {/*<UpgradeCard />*/}
-                        {/*<Campaigns />*/}
                     </Grid>
                 </Grid>
             </ContentBox>

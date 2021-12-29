@@ -2,9 +2,8 @@ import React from 'react'
 import { useTheme } from '@mui/system'
 import ReactEcharts from 'echarts-for-react'
 
-const DoughnutChart = ({ height, color = [] }) => {
+const DoughnutChart = ({ height, color = [], godOfWar, conqueror, king, diamond, platinum, gold, silver, bronze }) => {
     const theme = useTheme()
-
     const option = {
         legend: {
             show: true,
@@ -80,14 +79,37 @@ const DoughnutChart = ({ height, color = [] }) => {
                 },
                 data: [
                     {
-                        value: 65,
-                        name: 'Dioses',
+                        value: godOfWar,
+                        name: 'Dioses de la Guerra',
                     },
                     {
-                        value: 150,
+                        value: conqueror,
                         name: 'Conquistadores',
                     },
-                    { value: 220, name: 'Others' },
+                    {
+                        value: king,
+                        name: 'Reyes',
+                    },
+                    {
+                        value: diamond,
+                        name: 'Diamantes',
+                    },
+                    {
+                        value: platinum,
+                        name: 'Platino',
+                    },
+                    {
+                        value: gold,
+                        name: 'Oro',
+                    },
+                    {
+                        value: silver,
+                        name: 'Plata',
+                    },
+                    {
+                        value: bronze,
+                        name: 'Bronce',
+                    },
                 ],
                 itemStyle: {
                     emphasis: {
