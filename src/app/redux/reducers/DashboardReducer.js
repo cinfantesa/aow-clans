@@ -20,10 +20,13 @@ const initialState = {
 const DashboardReducer = function (state = initialState, action) {
   switch (action.type) {
     case LOAD_MEMBERS: {
+      const clans = [...new Set(action.payload.map(it => it.clan))];
+
       return {
         ...state,
         members: [...action.payload],
         stats: {
+          totalClans: clans.length,
           totalMembers: action.payload.length,
           godOfWarMembers: action.payload.filter(it => it.isGodOfWar).length,
           conquerorMembers: action.payload.filter(it => it.isConqueror).length,
@@ -35,7 +38,7 @@ const DashboardReducer = function (state = initialState, action) {
           bronzeMembers: action.payload.filter(it => it.isBronze).length,
           inactiveMembers: action.payload.filter(it => it.isInactive).length,
         },
-        clans: [...new Set(action.payload.map(it => it.clan))],
+        clans,
       }
     }
     default: {
