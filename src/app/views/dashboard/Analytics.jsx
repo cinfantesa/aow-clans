@@ -16,7 +16,6 @@ let membersLoaded = false;
 
 const Analytics = () => {
     const dispatch = useDispatch();
-    const { palette } = useTheme();
     const stats = useSelector(state => state.dashboard.stats);
 
     if (!membersLoaded) {
