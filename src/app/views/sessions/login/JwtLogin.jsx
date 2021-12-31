@@ -52,10 +52,7 @@ const StyledProgress = styled(CircularProgress)(() => ({
 const JwtLogin = () => {
     const navigate = useNavigate()
     const [loading, setLoading] = useState(false)
-    const [userInfo, setUserInfo] = useState({
-        email: 'jason@ui-lib.com',
-        password: 'dummyPass',
-    })
+    const [userInfo, setUserInfo] = useState({})
     const [message, setMessage] = useState('')
     const { login } = useAuth()
 
