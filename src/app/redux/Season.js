@@ -31,6 +31,10 @@ export default class Season {
     return this._clans.reduce((previous,current) => { return previous + current.statistics.inactiveMembers;}, 0);
   }
 
+  get totalGoWMembers() {
+    return this._clans.reduce((previous,current) => { return previous + current.statistics.godOfWarMembers;}, 0);
+  }
+
   _generateClansFrom(members) {
     const clanNames = [...new Set(members.map(it => it.clan))];
     return clanNames.map((name) => {
