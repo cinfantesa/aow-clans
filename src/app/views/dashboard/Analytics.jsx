@@ -1,8 +1,8 @@
-import React, { Fragment } from 'react'
+import React, {Fragment, useEffect} from 'react'
 import StatCards from './shared/StatCards'
 import { Grid } from '@mui/material'
 import { styled } from '@mui/system'
-import {loadMembers} from '../../redux/actions/DashboardActions';
+import {loadSeasons} from '../../redux/actions/DashboardActions';
 import {useDispatch, useSelector} from 'react-redux';
 
 const ContentBox = styled('div')(({ theme }) => ({
@@ -12,16 +12,14 @@ const ContentBox = styled('div')(({ theme }) => ({
     },
 }))
 
-let membersLoaded = false;
-
 const Analytics = () => {
     const dispatch = useDispatch();
-    const stats = useSelector(state => state.dashboard.stats);
+    const lastSeason = useSelector(state => state.dashboard.lastSeason);
 
-    if (!membersLoaded) {
-        dispatch(loadMembers());
-        membersLoaded = true;
-    }
+    useEffect(() => {
+        dispatch(loadSeasons());
+    },[dispatch]);
+
 
     return (
         <Fragment>
@@ -29,9 +27,9 @@ const Analytics = () => {
                 <Grid container spacing={3}>
                     <Grid item lg={12} md={12} sm={12} xs={12}>
                         <StatCards
-                          totalMembers={stats.totalMembers}
-                          inactiveMembers={stats.inactiveMembers}
-                          totalClans={stats.totalClans}
+                          totalMembers={lastSeason.totalMembers}
+                          inactiveMembers={lastSeason.totalInactiveMembers}
+                          totalClans={lastSeason.totalClans}
                         />
                     </Grid>
                 </Grid>
