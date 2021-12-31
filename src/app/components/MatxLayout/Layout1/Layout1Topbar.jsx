@@ -3,6 +3,7 @@ import { styled, Box } from '@mui/system'
 import { Span } from '../../../components/Typography'
 import { themeShadows } from 'app/components/MatxTheme/themeColors'
 import { topBarHeight } from 'app/utils/constant'
+import useAuth from '../../../hooks/useAuth';
 
 const TopbarRoot = styled('div')(({ theme }) => ({
     top: 0,
@@ -32,6 +33,7 @@ const TopbarContainer = styled(Box)(({ theme }) => ({
 }))
 
 const Layout1Topbar = () => {
+    const { user } = useAuth()
     return (
         <TopbarRoot>
             <TopbarContainer>
@@ -40,7 +42,7 @@ const Layout1Topbar = () => {
                 <Box display="flex" alignItems="center">
                     {/*<MatxSearchBox />*/}
                     <Span>
-                        Hola <strong>dragón</strong>
+                        Hola <strong>{user.name}</strong>
                     </Span>
                 </Box>
             </TopbarContainer>
