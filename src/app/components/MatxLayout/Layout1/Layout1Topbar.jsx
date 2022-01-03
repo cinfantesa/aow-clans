@@ -1,18 +1,14 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import useAuth from 'app/hooks/useAuth'
 import useSettings from 'app/hooks/useSettings'
 import { styled, useTheme, Box } from '@mui/system'
 import { Span } from '../../../components/Typography'
-import { MatxMenu, MatxSearchBox } from 'app/components'
-import NotificationBar from '../../NotificationBar/NotificationBar'
+import { MatxMenu } from 'app/components'
 import { themeShadows } from 'app/components/MatxTheme/themeColors'
-import { NotificationProvider } from 'app/contexts/NotificationContext'
 import {
     Icon,
     IconButton,
     MenuItem,
-    Avatar,
     useMediaQuery,
     Hidden,
 } from '@mui/material'
@@ -76,13 +72,6 @@ const StyledItem = styled(MenuItem)(({ theme }) => ({
     },
 }))
 
-const IconBox = styled('div')(({ theme }) => ({
-    display: 'inherit',
-    [theme.breakpoints.down('md')]: {
-        display: 'none !important',
-    },
-}))
-
 const Layout1Topbar = () => {
     const theme = useTheme()
     const { settings, updateSettings } = useSettings()
@@ -122,26 +111,8 @@ const Layout1Topbar = () => {
                       <Icon>menu</Icon>
                   </StyledIconButton>
 
-                  <IconBox>
-                      <StyledIconButton>
-                          <Icon>mail_outline</Icon>
-                      </StyledIconButton>
-
-                      <StyledIconButton>
-                          <Icon>web_asset</Icon>
-                      </StyledIconButton>
-
-                      <StyledIconButton>
-                          <Icon>star_outline</Icon>
-                      </StyledIconButton>
-                  </IconBox>
               </Box>
               <Box display="flex" alignItems="center">
-                  <MatxSearchBox />
-                  <NotificationProvider>
-                      <NotificationBar />
-                  </NotificationProvider>
-
                   <MatxMenu
                     menuButton={
                         <UserMenu>
@@ -150,29 +121,9 @@ const Layout1Topbar = () => {
                                     Hi <strong>{user.name}</strong>
                                 </Span>
                             </Hidden>
-                            <Avatar
-                              src={user.avatar}
-                              sx={{ cursor: 'pointer' }}
-                            />
                         </UserMenu>
                     }
                   >
-                      <StyledItem>
-                          <Link to="/">
-                              <Icon> home </Icon>
-                              <Span> Home </Span>
-                          </Link>
-                      </StyledItem>
-                      <StyledItem>
-                          <Link to="/page-layouts/user-profile">
-                              <Icon> person </Icon>
-                              <Span> Profile </Span>
-                          </Link>
-                      </StyledItem>
-                      <StyledItem>
-                          <Icon> settings </Icon>
-                          <Span> Settings </Span>
-                      </StyledItem>
                       <StyledItem onClick={logout}>
                           <Icon> power_settings_new </Icon>
                           <Span> Logout </Span>
