@@ -78,25 +78,25 @@ const Layout1Sidenav = () => {
     }
 
     return (
-        <SidebarNavRoot
-            bgImgURL={bgImgURL}
-            primaryBg={primaryRGB}
-            width={getSidenavWidth()}
-        >
-            <NavListBox>
-                <Brand>
-                    <Hidden smDown>
-                        <Switch
-                            onChange={handleSidenavToggle}
-                            checked={leftSidebar.mode !== 'full'}
-                            color="secondary"
-                            size="small"
-                        />
-                    </Hidden>
-                </Brand>
-                <Sidenav />
-            </NavListBox>
-        </SidebarNavRoot>
+      <SidebarNavRoot
+        bgImgURL={bgImgURL}
+        primaryBg={primaryRGB}
+        width={getSidenavWidth()}
+      >
+          <NavListBox>
+              <Brand>
+                  <Hidden smDown>
+                      <Switch
+                        onChange={handleSidenavToggle}
+                        checked={leftSidebar.mode !== 'full'}
+                        color="secondary"
+                        size="small"
+                      />
+                  </Hidden>
+              </Brand>
+              <Sidenav />
+          </NavListBox>
+      </SidebarNavRoot>
     )
 }
 

@@ -80,72 +80,72 @@ const Layout1 = () => {
             let mode = isMdScreen ? 'close' : sidebarMode
             updateSettings({ layout1Settings: { leftSidebar: { mode } } })
         }
-    }, [isMdScreen, updateSettings])
+    }, [isMdScreen])
 
     return (
-        <Layout1Root className={layoutClasses}>
-            {showSidenav && sidenavMode !== 'close' && (
-                <SidenavTheme>
-                    <Layout1Sidenav />
-                </SidenavTheme>
-            )}
+      <Layout1Root className={layoutClasses}>
+          {showSidenav && sidenavMode !== 'close' && (
+            <SidenavTheme>
+                <Layout1Sidenav />
+            </SidenavTheme>
+          )}
 
-            <LayoutContainer
-                width={sidenavWidth}
-                secondarySidebar={secondarySidebar}
-            >
-                {layout1Settings.topbar.show && layout1Settings.topbar.fixed && (
-                    // <Layout1Topbar fixed={true} />
-                    <ThemeProvider theme={topbarTheme}>
-                        <Layout1Topbar fixed={true} className="elevation-z8" />
-                    </ThemeProvider>
-                )}
-                {settings.perfectScrollbar && (
-                    <StyledScrollBar>
-                        {layout1Settings.topbar.show &&
-                            !layout1Settings.topbar.fixed && (
-                                // <Layout1Topbar />
-                                <ThemeProvider theme={topbarTheme}>
-                                    <Layout1Topbar />
-                                </ThemeProvider>
-                            )}
-                        <Box flexGrow={1} position="relative">
-                            <MatxSuspense>
-                                {/* {renderRoutes(routes)} */}
-                                <Outlet />
-                            </MatxSuspense>
-                        </Box>
-                        {settings.footer.show && !settings.footer.fixed && (
-                            <Footer />
-                        )}
-                    </StyledScrollBar>
-                )}
+          <LayoutContainer
+            width={sidenavWidth}
+            secondarySidebar={secondarySidebar}
+          >
+              {layout1Settings.topbar.show && layout1Settings.topbar.fixed && (
+                // <Layout1Topbar fixed={true} />
+                <ThemeProvider theme={topbarTheme}>
+                    <Layout1Topbar fixed={true} className="elevation-z8" />
+                </ThemeProvider>
+              )}
+              {settings.perfectScrollbar && (
+                <StyledScrollBar>
+                    {layout1Settings.topbar.show &&
+                      !layout1Settings.topbar.fixed && (
+                        // <Layout1Topbar />
+                        <ThemeProvider theme={topbarTheme}>
+                            <Layout1Topbar />
+                        </ThemeProvider>
+                      )}
+                    <Box flexGrow={1} position="relative">
+                        <MatxSuspense>
+                            {/* {renderRoutes(routes)} */}
+                            <Outlet />
+                        </MatxSuspense>
+                    </Box>
+                    {settings.footer.show && !settings.footer.fixed && (
+                      <Footer />
+                    )}
+                </StyledScrollBar>
+              )}
 
-                {!settings.perfectScrollbar && (
-                    <ContentBox>
-                        {layout1Settings.topbar.show &&
-                            !layout1Settings.topbar.fixed && (
-                                // <Layout1Topbar />
-                                <ThemeProvider theme={topbarTheme}>
-                                    <Layout1Topbar />
-                                </ThemeProvider>
-                            )}
-                        <Box flexGrow={1} position="relative">
-                            <MatxSuspense>
-                                {/* {renderRoutes(routes)} */}
-                                <Outlet />
-                            </MatxSuspense>
-                        </Box>
-                        {settings.footer.show && !settings.footer.fixed && (
-                            <Footer />
-                        )}
-                    </ContentBox>
-                )}
+              {!settings.perfectScrollbar && (
+                <ContentBox>
+                    {layout1Settings.topbar.show &&
+                      !layout1Settings.topbar.fixed && (
+                        // <Layout1Topbar />
+                        <ThemeProvider theme={topbarTheme}>
+                            <Layout1Topbar />
+                        </ThemeProvider>
+                      )}
+                    <Box flexGrow={1} position="relative">
+                        <MatxSuspense>
+                            {/* {renderRoutes(routes)} */}
+                            <Outlet />
+                        </MatxSuspense>
+                    </Box>
+                    {settings.footer.show && !settings.footer.fixed && (
+                      <Footer />
+                    )}
+                </ContentBox>
+              )}
 
-                {settings.footer.show && settings.footer.fixed && <Footer />}
-            </LayoutContainer>
-            {settings.secondarySidebar.show && <SecondarySidebar />}
-        </Layout1Root>
+              {settings.footer.show && settings.footer.fixed && <Footer />}
+          </LayoutContainer>
+          {settings.secondarySidebar.show && <SecondarySidebar />}
+      </Layout1Root>
     )
 }
 
