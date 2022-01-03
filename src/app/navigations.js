@@ -5,6 +5,11 @@ export const navigations = [
         icon: 'dashboard',
     },
     {
+        name: 'Miembros',
+        path: '/members',
+        icon: 'label',
+    },
+    {
         name: 'Documentation',
         icon: 'launch',
         type: 'extLink',

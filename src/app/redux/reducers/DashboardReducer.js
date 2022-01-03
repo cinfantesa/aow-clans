@@ -25,7 +25,6 @@ const DashboardReducer = function (state = initialState, action) {
           inactiveMembersBySeason: action.payload.map(season => season.totalInactiveMembers),
         },
       };
-      console.log(':::newState', newState)
       return newState;
     }
     default: {

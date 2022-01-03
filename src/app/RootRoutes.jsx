@@ -1,6 +1,7 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
 import dashboardRoutes from './views/dashboard/DashboardRoutes'
+import memberRoutes from './views/members/MemberRoutes';
 
 const redirectRoute = [
     {
@@ -18,6 +19,7 @@ const errorRoute = [
 
 const routes = [
   ...dashboardRoutes,
+  ...memberRoutes,
   ...redirectRoute,
   ...errorRoute,
 ]
