@@ -9,10 +9,4 @@ export const navigations = [
         path: '/members',
         icon: 'label',
     },
-    {
-        name: 'Documentation',
-        icon: 'launch',
-        type: 'extLink',
-        path: 'http://demos.ui-lib.com/matx-react-doc/',
-    },
 ]
