@@ -1,4 +1,4 @@
-import { LOAD_SEASONS } from '../actions/DashboardActions';
+import {LOADED_SEASONS} from '../actions/DashboardActions';
 
 const initialState = {
   seasons: [],
@@ -13,7 +13,7 @@ const initialState = {
 
 const DashboardReducer = function (state = initialState, action) {
   switch (action.type) {
-    case LOAD_SEASONS: {
+    case LOADED_SEASONS: {
       const newState = {
         ...state,
         seasons: [...action.payload],

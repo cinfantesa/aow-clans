@@ -2,7 +2,7 @@ import axios from 'axios';
 import Member from '../Member';
 import Season from '../Season';
 
-export const LOAD_SEASONS = 'LOAD_SEASONS';
+export const LOADED_SEASONS = 'LOADED_SEASONS';
 
 export const loadSeasons = () => async (dispatch) => {
   let seasons = [];
@@ -28,7 +28,7 @@ export const loadSeasons = () => async (dispatch) => {
   }
 
   dispatch({
-    type: LOAD_SEASONS,
+    type: LOADED_SEASONS,
     payload: seasons,
   });
-}
+};
