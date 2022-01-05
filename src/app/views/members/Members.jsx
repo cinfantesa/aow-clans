@@ -1,8 +1,7 @@
-import React, {Fragment, useEffect} from 'react'
+import React, {Fragment} from 'react'
 import { Box, styled } from '@mui/system'
 import DataTable from 'react-data-table-component';
-import {loadSeasons} from '../../redux/actions/DashboardActions';
-import {useDispatch, useSelector} from 'react-redux';
+import {useSelector} from 'react-redux';
 
 const ContentBox = styled('div')(({ theme }) => ({
   margin: '30px',
@@ -85,12 +84,7 @@ const columns = [
 ];
 
 const Members= () => {
-  const dispatch = useDispatch();
   const lastSeason = useSelector(state => state.dashboard.lastSeason);
-
-  useEffect(() => {
-    dispatch(loadSeasons());
-  },[dispatch]);
 
   return (
     <Fragment>

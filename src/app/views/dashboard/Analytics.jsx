@@ -1,9 +1,8 @@
-import React, {Fragment, useEffect} from 'react'
+import React, {Fragment} from 'react'
 import StatCards from './shared/StatCards'
 import { Grid } from '@mui/material'
 import { styled, useTheme } from '@mui/system'
-import {loadSeasons} from '../../redux/actions/DashboardActions';
-import {useDispatch, useSelector} from 'react-redux';
+import {useSelector} from 'react-redux';
 import LineChart from './shared/LineChart';
 
 const ContentBox = styled('div')(({ theme }) => ({
@@ -15,14 +14,8 @@ const ContentBox = styled('div')(({ theme }) => ({
 
 const Analytics = () => {
     const theme = useTheme();
-    const dispatch = useDispatch();
     const lastSeason = useSelector(state => state.dashboard.lastSeason);
     const stats = useSelector(state => state.dashboard.stats);
-
-    useEffect(() => {
-        dispatch(loadSeasons());
-    },[dispatch]);
-
 
     return (
         <Fragment>
