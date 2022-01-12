@@ -1,4 +1,5 @@
 import Clan from './Clan';
+import Movement from './movement';
 
 export default class Season {
   constructor({seasonNumber, members}) {
@@ -24,15 +25,44 @@ export default class Season {
   }
 
   get totalMembers() {
-    return this._clans.reduce((previous,current) => { return previous + current.totalMembers;}, 0);
+    return this._clans.reduce((previous, current) => {
+      return previous + current.totalMembers;
+    }, 0);
   }
 
   get totalInactiveMembers() {
-    return this._clans.reduce((previous,current) => { return previous + current.statistics.inactiveMembers;}, 0);
+    return this._clans.reduce((previous, current) => {
+      return previous + current.statistics.inactiveMembers;
+    }, 0);
   }
 
   get totalGoWMembers() {
-    return this._clans.reduce((previous,current) => { return previous + current.statistics.godOfWarMembers;}, 0);
+    return this._clans.reduce((previous, current) => {
+      return previous + current.statistics.godOfWarMembers;
+    }, 0);
+  }
+
+  calculateMovements() {
+    const sortByTrophies = (a,b) => {
+      if ( a.trophies < b.trophies ){
+        return 1;
+      }
+      if ( a.trophies > b.trophies ){
+        return -1;
+      }
+      return 0;
+    };
+
+    const membersOrderedByTrophies = this.members.sort(sortByTrophies);
+    const movements = [];
+    membersOrderedByTrophies.forEach((member, index) => {
+      const targetClan = (Math.trunc(index / 50) + 1).toString();
+      if (targetClan !== member.clan) {
+        movements.push(new Movement({member, targetClan}))  ;
+      }
+    });
+
+    return movements;
   }
 
   _generateClansFrom(members) {

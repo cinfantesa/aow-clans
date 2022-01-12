@@ -5,7 +5,7 @@ export const authRoles = {
     guest: ['SA', 'ADMIN', 'EDITOR', 'GUEST'], // Everyone has access
 }
 
-// Check out app/views/dashboard/MemberRoutes.js
+// Check out app/views/dashboard/MovementRoutes.js
 // Only SA & Admin has dashboard access
 
 // const dashboardRoutes = [

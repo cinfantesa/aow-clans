@@ -3,6 +3,7 @@ import {LOADED_SEASONS} from '../actions/DashboardActions';
 const initialState = {
   seasons: [],
   lastSeason: {},
+  movements: [],
   stats: {
     seasonNames: [],
     gowBySeason: [],
@@ -18,6 +19,7 @@ const DashboardReducer = function (state = initialState, action) {
         ...state,
         seasons: [...action.payload],
         lastSeason: [...action.payload].pop(),
+        movements: [...action.payload].pop().calculateMovements(),
         stats: {
           seasonNames: action.payload.map(season => season.seasonNumber),
           gowBySeason: action.payload.map(season => season.totalGoWMembers),
@@ -25,6 +27,7 @@ const DashboardReducer = function (state = initialState, action) {
           inactiveMembersBySeason: action.payload.map(season => season.totalInactiveMembers),
         },
       };
+
       return newState;
     }
     default: {

@@ -9,4 +9,9 @@ export const navigations = [
         path: '/members',
         icon: 'label',
     },
+    {
+        name: 'Movimientos',
+        path: '/movements',
+        icon: 'launch',
+    },
 ]

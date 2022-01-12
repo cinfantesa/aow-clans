@@ -4,6 +4,7 @@ import dashboardRoutes from "app/views/dashboard/DashboardRoutes";
 import sessionRoutes from "app/views/sessions/SessionRoutes";
 import MatxLayout from '../components/MatxLayout/MatxLayout'
 import memberRoutes from '../views/members/MemberRoutes';
+import movementRoutes from '../views/movements/MovementRoutes';
 
 export const AllPages = () => {
   const all_routes = [
@@ -17,6 +18,7 @@ export const AllPages = () => {
       children: [
         ...dashboardRoutes,
         ...memberRoutes,
+        ...movementRoutes,
       ],
     },
     ...sessionRoutes,
