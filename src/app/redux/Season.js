@@ -53,16 +53,27 @@ export default class Season {
       return 0;
     };
 
+    const sortByClan = (a,b) => {
+      if ( a.member.clan < b.member.clan ){
+        return -1;
+      }
+      if ( a.member.clan > b.member.clan ){
+        return 1;
+      }
+      return 0;
+    };
+
     const membersOrderedByTrophies = this.members.sort(sortByTrophies);
     const movements = [];
-    membersOrderedByTrophies.forEach((member, index) => {
-      const targetClan = (Math.trunc(index / 50) + 1).toString();
-      if (targetClan !== member.clan) {
-        movements.push(new Movement({member, targetClan}))  ;
-      }
-    });
+    membersOrderedByTrophies
+      .forEach((member, index) => {
+        const targetClan = (Math.trunc(index / 50) + 1).toString();
+        if (targetClan !== member.clan) {
+          movements.push(new Movement({member, targetClan}))  ;
+        }
+      });
 
-    return movements;
+    return movements.sort(sortByClan);
   }
 
   _generateClansFrom(members) {
